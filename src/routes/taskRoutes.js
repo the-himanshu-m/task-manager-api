@@ -1,5 +1,6 @@
 import express from "express";
 import authenticateUser from "../middleware/authMiddleware.js";
+import { getTaskStats } from "../controllers/taskController.js";
 import {
     validateTaskBody,
     validateTaskId
@@ -32,6 +33,11 @@ router.get(
     "/:id",
     validateTaskId,
     getTaskById
+);
+
+router.get(
+    "/stats", 
+    getTaskStats
 );
 
 router.patch(
